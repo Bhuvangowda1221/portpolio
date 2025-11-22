@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <div class="text-center mb-5">
+            <h2 class="section-title">About Me</h2>
+            <div class="mb-4">
+                <div class="bg-light rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 150px; height: 150px;">
+                    <i class="fas fa-user fa-5x text-muted"></i>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-body p-5">
+                <h4 class="text-primary mb-4">Hello, I'm a Developer</h4>
+                <p class="lead mb-4">Welcome to my portfolio! I'm passionate about creating innovative solutions and bringing ideas to life through code.</p>
+                
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <h5><i class="fas fa-code text-primary"></i> Skills</h5>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check text-success"></i> Python & Flask</li>
+                            <li><i class="fas fa-check text-success"></i> Web Development</li>
+                            <li><i class="fas fa-check text-success"></i> Database Design</li>
+                            <li><i class="fas fa-check text-success"></i> UI/UX Design</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <h5><i class="fas fa-heart text-primary"></i> Interests</h5>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check text-success"></i> Problem Solving</li>
+                            <li><i class="fas fa-check text-success"></i> Learning New Tech</li>
+                            <li><i class="fas fa-check text-success"></i> Open Source</li>
+                            <li><i class="fas fa-check text-success"></i> Innovation</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="text-center">
+                    <a href="{{ url_for('contact') }}" class="btn btn-primary btn-lg">
+                        <i class="fas fa-envelope"></i> Let's Connect
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

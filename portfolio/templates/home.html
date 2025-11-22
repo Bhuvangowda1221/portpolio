@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="hero-section">
+    <div class="container">
+        <h1 class="display-4 fw-bold mb-4">Welcome to My Portfolio</h1>
+        <p class="lead mb-4">Passionate developer creating innovative solutions</p>
+        <a href="{{ url_for('projects') }}" class="btn btn-light btn-lg me-3">
+            <i class="fas fa-folder-open"></i> View Projects
+        </a>
+        <a href="{{ url_for('contact') }}" class="btn btn-outline-light btn-lg">
+            <i class="fas fa-envelope"></i> Get In Touch
+        </a>
+    </div>
+</div>
+
+{% if projects %}
+<div class="row">
+    <div class="col-12">
+        <h2 class="section-title text-center">Recent Projects</h2>
+    </div>
+    {% for project in projects %}
+    <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card h-100">
+            {% if project.image %}
+            <img src="{{ url_for('static', filename='uploads/' + project.image) }}" class="card-img-top" style="height: 200px; object-fit: cover;">
+            {% else %}
+            <div class="card-img-top bg-light d-flex align-items-center justify-content-center" style="height: 200px;">
+                <i class="fas fa-image fa-3x text-muted"></i>
+            </div>
+            {% endif %}
+            <div class="card-body d-flex flex-column">
+                <h5 class="card-title">{{ project.title }}</h5>
+                <p class="card-text flex-grow-1">{{ project.description[:100] }}{% if project.description|length > 100 %}...{% endif %}</p>
+                {% if project.link %}
+                <a href="{{ project.link }}" class="btn btn-primary mt-auto" target="_blank">
+                    <i class="fas fa-external-link-alt"></i> View Project
+                </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+{% endblock %}
